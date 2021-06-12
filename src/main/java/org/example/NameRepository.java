@@ -4,15 +4,14 @@ package org.example;
 
 public class NameRepository {
 
-    private static String[] namesArray = new String[5];
-    int counter = 0;
+    private static String[] namesArray = new String[0];
+
+    //int counter = 0;
 
     //String name;
 
-    public NameRepository(String name) {
-        //this.name = name;
-        namesArray[counter] = name;
-        this.counter++;
+
+    public NameRepository() {
     }
 
     public static int getSize(){
@@ -24,7 +23,8 @@ public class NameRepository {
         namesArray = names;
     }
     public static void clear(){
-       namesArray  = new String[namesArray.length];
+       //namesArray  = new String[namesArray.length];
+        namesArray = new String[0];
     }
     public static boolean add(final String fullName){
         int nl = namesArray.length+1;
