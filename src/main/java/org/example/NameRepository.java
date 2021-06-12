@@ -3,58 +3,62 @@ package org.example;
 
 
 public class NameRepository {
-    private static String[] names  = new String[5];
+
+    private static String[] namesArray = new String[5];
+    int counter = 0;
 
     //String name;
 
     public NameRepository(String name) {
         //this.name = name;
+        namesArray[counter] = name;
+        this.counter++;
     }
 
     public static int getSize(){
-        int elements=names.length;
+        int elements=namesArray.length;
         return elements;
     }
 
     public static void setNames(String[]names){
-
+        namesArray = names;
     }
     public static void clear(){
-       names  = new String[names.length];
+       namesArray  = new String[namesArray.length];
     }
     public static boolean add(final String fullName){
-        int nl = names.length+1;
+        int nl = namesArray.length+1;
         String [] newArray = new String[nl];
-        for(String i:names){
+        for(String i:namesArray){
             if (i.equals(fullName)) return false;
         }
         newArray[nl-1] = fullName;
-        for (int i = 0;i < names.length; i++)
+        for (int i = 0;i < namesArray.length; i++)
         {
-            newArray[i] = names[i];
+            newArray[i] = namesArray[i];
         }
         newArray[nl-1] = fullName;
-        names = newArray;
+        namesArray = newArray;
         return true;
     }
     public static String find(final String fullName){
-        for(String i:names){
+        for(String i:namesArray){
             if (i.equals(fullName)) return fullName;
         }
         return null;
     }
     public static String[]findAll(){
-        String []newArray = names;
+        String []newArray = namesArray;
         return newArray;
     }
     public static boolean update(final String original, final String updatedName) {
         boolean updated = false;
-        for (String i : names) {
+        for (String i : namesArray) {
             if (i.equals(original)){
 
             }
         }
-        for (String i : names) {
+        for (String i : namesArray) {
             if (i.equals(original)){
 
             }
@@ -70,7 +74,7 @@ public class NameRepository {
     public static boolean remove(final String fullName){
 
         //String[] newArray= new String[names.length-1];
-        String[] newArray=names;
+        String[] newArray=namesArray;
 
         boolean arrayCut = false;
         for(int i=0, k=0;i<newArray.length;i++){
@@ -81,7 +85,7 @@ public class NameRepository {
             else arrayCut = true;
         }
         if (arrayCut){
-            String[] newArrayCut = new String[names.length-2];
+            String[] newArrayCut = new String[namesArray.length-2];
             for(int i=0;i<(newArray.length-1);i++) {
                 newArrayCut[i] = newArray[i];
             }

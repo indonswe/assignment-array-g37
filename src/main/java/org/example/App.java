@@ -13,10 +13,13 @@ public class App
         System.out.println( "Hello World!" );
         //String[] names = NameRepository.names;
         //names[0] = "Kalle Anka";
-        NameRepository.names[0]= "Kalle Anka";
-        int elementNames = NameRepository.getSize();
+        //NameRepository.names[0]= "Kalle Anka";
+        NameRepository dB = new NameRepository("Kalle Anka");
+        String[] arrayOfNames = {"A B", "C D"};
+        dB.setNames(arrayOfNames);
+        int elementNames = dB.getSize();
         System.out.println(elementNames);
-        String allNames = Arrays.toString(NameRepository.findAll());
+        String allNames = Arrays.toString(dB.findAll());
         System.out.println(allNames);
 
     }
