@@ -3,11 +3,21 @@ package org.example;
 
 
 public class NameRepository {
-    static String[] names  = new String[0];
+    private static String[] names  = new String[5];
+
+    //String name;
+
+    public NameRepository(String name) {
+        //this.name = name;
+    }
 
     public static int getSize(){
         int elements=names.length;
         return elements;
+    }
+
+    public static void setNames(String[]names){
+
     }
     public static void clear(){
        names  = new String[names.length];
@@ -38,10 +48,24 @@ public class NameRepository {
         return newArray;
     }
     public static boolean update(final String original, final String updatedName) {
+        boolean updated = false;
         for (String i : names) {
-            if (i.equals(fullName)) return false;
+            if (i.equals(original)){
+
+            }
         }
+        for (String i : names) {
+            if (i.equals(original)){
+
+            }
+        }
+        return true;
+    }
+    public static String[] findByFirstName(final String firstName){
         return null;
+    }
+    public static String[] findByLastName(final String lastName){
+        return  null;
     }
     public static boolean remove(final String fullName){
 
