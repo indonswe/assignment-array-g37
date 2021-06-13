@@ -10,13 +10,13 @@ public class NameRepositoryTest extends TestCase {
         super.setUp();
 
         dB.clear();
-        String[] arrayOfNames = {"A B", "C D"};
+        String[] arrayOfNames = {"A B", "C D", "A C", "A D"};
         dB.setNames(arrayOfNames);
     }
 
     public void testGetSize() {
         int elementNames = dB.getSize();
-        int expected = 2;
+        int expected = 4;
         assertEquals(expected,elementNames);
     }
 
@@ -51,7 +51,7 @@ public class NameRepositoryTest extends TestCase {
 
     public void testFindAll() {
         String[] allNames = dB.findAll();
-        String[] expected = {"A B", "C D"};
+        String[] expected = {"A B", "C D", "A C", "A D"};
 
         assertArrayEquals(expected, allNames);
     }
@@ -75,6 +75,9 @@ public class NameRepositoryTest extends TestCase {
     }
 
     public void testFindByFirstName() {
+        String[] exist = dB.findByFirstName("A");
+        String[] expected = {"A B", "A C", "A D"};
+        assertArrayEquals(expected, exist);
     }
 
     public void testFindByLastName() {

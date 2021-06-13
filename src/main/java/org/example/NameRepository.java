@@ -76,36 +76,23 @@ public class NameRepository {
         return true;
     }
     public static String[] findByFirstName(final String firstName){
-        String []newArray = namesArray;
+        String []newArray = new String[namesArray.length];
+        int compareName;
+        int counter = 0;
         boolean space= false;
-        boolean match = false
-        for (int i = 0; i< namesArray.length; i++) {
-            for(int j = 0; j<namesArray[i].length();j++){
-             if (namesArray[i].charAt(j) == ' ') {
-                 space = true;
-                 if (match){
-
-                 }
-
-             }
-            if (namesArray[i].charAt(j)!=firstName.charAt(j)){
-                namesArray[i] = updatedName;
-            }
-        }
-        if(line != null){
-
-
-            for(int i = 0; i < line.length(); i++){
-
-                if(line.charAt(i) == ' '){
-                    space= true;
+        boolean match = false;
+        for (int i=0;i<namesArray.length;i++){
+            compareName = namesArray[i].indexOf(firstName);
+                if (compareName == 0){
+                    newArray[counter]=namesArray[i];
+                    counter++;
                 }
-
-            }
         }
-        return space;
-    }
-        return namesArray;
+        String []correctArray = new String[counter];
+        for (int i=0;i<counter;i++){
+            correctArray[i]=newArray[i];
+        }
+        return correctArray;
     }
     public static String[] findByLastName(final String lastName){
         return  null;
