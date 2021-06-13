@@ -37,6 +37,16 @@ public class NameRepositoryTest extends TestCase {
     }
 
     public void testFind() {
+        String exist = dB.find("C D");
+        String neverExisted = dB.find("G H");
+
+        String expected = "C D";
+        String neverExpected = null;
+
+        assertEquals(expected, exist);
+        assertEquals(neverExpected, neverExisted);
+
+
     }
 
     public void testFindAll() {
