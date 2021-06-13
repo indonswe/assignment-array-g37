@@ -52,17 +52,25 @@ public class NameRepository {
         return newArray;
     }
     public static boolean update(final String original, final String updatedName) {
-        boolean updated = false;
+        boolean notUpdate = false;
         for (String i : namesArray) {
             if (i.equals(original)){
-
+                notUpdate = true;
+                for (String j : namesArray) {
+                    if (j.equals(updatedName)){
+                      return false;
+                    }
+                }
             }
         }
-        for (String i : namesArray) {
-            if (i.equals(original)){
+        if (notUpdate = false) return false;
 
+        for (int k = 0; k< namesArray.length; k++) {
+            if (namesArray[k].equals(original)){
+                namesArray[k] = updatedName;
             }
         }
+
         return true;
     }
     public static String[] findByFirstName(final String firstName){

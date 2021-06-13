@@ -2,6 +2,8 @@ package org.example;
 
 import junit.framework.TestCase;
 
+import static org.junit.Assert.assertArrayEquals;
+
 public class NameRepositoryTest extends TestCase {
     NameRepository dB = new NameRepository();
     public void setUp() throws Exception {
@@ -45,14 +47,29 @@ public class NameRepositoryTest extends TestCase {
 
         assertEquals(expected, exist);
         assertEquals(neverExpected, neverExisted);
-
-
     }
 
     public void testFindAll() {
+        String[] allNames = dB.findAll();
+        String[] expected = {"A B", "C D"};
+
+        assertArrayEquals(expected, allNames);
     }
 
     public void testUpdate() {
+        String newName = "I J";
+        String oldName = "A B";
+
+        boolean upDated = dB.update(oldName,newName);
+        boolean notUpdated = dB.update(newName, oldName);
+        boolean noCloneAllowed = dB.update(oldName, "C D");
+
+        assertTrue(upDated);
+        //assertFalse(notUpdated);
+        //assertFalse(noCloneAllowed);
+
+
+
     }
 
     public void testFindByFirstName() {
