@@ -55,26 +55,57 @@ public class NameRepository {
         boolean notUpdate = false;
         for (String i : namesArray) {
             if (i.equals(original)){
+                System.out.println("equals original");
                 notUpdate = true;
                 for (String j : namesArray) {
                     if (j.equals(updatedName)){
-                      return false;
+                        System.out.println("updated name existed");
+                        return false;
                     }
                 }
             }
         }
-        if (notUpdate = false) return false;
-
+        if (!notUpdate) {
+            return false;
+        }
         for (int k = 0; k< namesArray.length; k++) {
             if (namesArray[k].equals(original)){
                 namesArray[k] = updatedName;
             }
         }
-
         return true;
     }
     public static String[] findByFirstName(final String firstName){
-        return null;
+        String []newArray = namesArray;
+        boolean space= false;
+        boolean match = false
+        for (int i = 0; i< namesArray.length; i++) {
+            for(int j = 0; j<namesArray[i].length();j++){
+             if (namesArray[i].charAt(j) == ' ') {
+                 space = true;
+                 if (match){
+
+                 }
+
+             }
+            if (namesArray[i].charAt(j)!=firstName.charAt(j)){
+                namesArray[i] = updatedName;
+            }
+        }
+        if(line != null){
+
+
+            for(int i = 0; i < line.length(); i++){
+
+                if(line.charAt(i) == ' '){
+                    space= true;
+                }
+
+            }
+        }
+        return space;
+    }
+        return namesArray;
     }
     public static String[] findByLastName(final String lastName){
         return  null;

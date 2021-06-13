@@ -60,13 +60,15 @@ public class NameRepositoryTest extends TestCase {
         String newName = "I J";
         String oldName = "A B";
 
-        boolean upDated = dB.update(oldName,newName);
+
         boolean notUpdated = dB.update(newName, oldName);
         boolean noCloneAllowed = dB.update(oldName, "C D");
+        boolean upDated = dB.update(oldName,newName);
 
+        assertFalse(notUpdated);
+        assertFalse(noCloneAllowed);
         assertTrue(upDated);
-        //assertFalse(notUpdated);
-        //assertFalse(noCloneAllowed);
+
 
 
 
