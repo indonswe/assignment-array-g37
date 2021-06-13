@@ -7,8 +7,8 @@ public class NameRepositoryTest extends TestCase {
     public void setUp() throws Exception {
         super.setUp();
 
+        dB.clear();
         String[] arrayOfNames = {"A B", "C D"};
-
         dB.setNames(arrayOfNames);
     }
 
@@ -25,6 +25,15 @@ public class NameRepositoryTest extends TestCase {
     }
 
     public void testAdd() {
+        boolean success = dB.add("E F");
+        boolean notSuccess = dB.add("A B");
+        String expected = "E F";
+
+        String exist = dB.find("E F");
+
+        assertEquals(expected, exist);
+        assertTrue(success);
+        assertFalse(notSuccess);
     }
 
     public void testFind() {
