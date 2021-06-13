@@ -81,6 +81,9 @@ public class NameRepositoryTest extends TestCase {
     }
 
     public void testFindByLastName() {
+        String[] exist = dB.findByLastName("D");
+        String[] expected = {"C D", "A D"};
+        assertArrayEquals(expected, exist);
     }
 
     public void testRemove() {

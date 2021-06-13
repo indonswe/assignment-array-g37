@@ -79,8 +79,6 @@ public class NameRepository {
         String []newArray = new String[namesArray.length];
         int compareName;
         int counter = 0;
-        boolean space= false;
-        boolean match = false;
         for (int i=0;i<namesArray.length;i++){
             compareName = namesArray[i].indexOf(firstName);
                 if (compareName == 0){
@@ -95,7 +93,21 @@ public class NameRepository {
         return correctArray;
     }
     public static String[] findByLastName(final String lastName){
-        return  null;
+        String []newArray = new String[namesArray.length];
+        int compareName;
+        int counter = 0;
+        for (int i=0;i<namesArray.length;i++){
+            compareName = namesArray[i].lastIndexOf(lastName);
+            if ((compareName != 0) & (compareName !=-1) ){
+                newArray[counter]=namesArray[i];
+                counter++;
+            }
+        }
+        String []correctArray = new String[counter];
+        for (int i=0;i<counter;i++){
+            correctArray[i]=newArray[i];
+        }
+        return correctArray;
     }
     public static boolean remove(final String fullName){
 
