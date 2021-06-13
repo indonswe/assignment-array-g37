@@ -6,11 +6,6 @@ public class NameRepository {
 
     private static String[] namesArray = new String[0];
 
-    //int counter = 0;
-
-    //String name;
-
-
     public NameRepository() {
     }
 
@@ -111,7 +106,6 @@ public class NameRepository {
     }
     public static boolean remove(final String fullName){
 
-        //String[] newArray= new String[names.length-1];
         String[] newArray=namesArray;
 
         boolean arrayCut = false;

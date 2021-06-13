@@ -21,9 +21,22 @@ public class NameRepositoryTest extends TestCase {
     }
 
     public void testSetNames() {
+        dB.clear();
+        String[] arrayOfNames = {"A B", "C D", "A C"};
+        dB.setNames(arrayOfNames);
+
+        int elementNames = dB.getSize();
+        int expected = 3;
+        assertEquals(expected,elementNames);
+
     }
 
     public void testClear() {
+        dB.clear();
+
+        int elementNames = dB.getSize();
+        int expected = 0;
+        assertEquals(expected,elementNames);
     }
 
     public void testAdd() {
