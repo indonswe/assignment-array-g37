@@ -87,5 +87,22 @@ public class NameRepositoryTest extends TestCase {
     }
 
     public void testRemove() {
+        String toBeRemoved = "A B";
+        String exist = dB.find(toBeRemoved);
+        int elementNames = dB.getSize();
+        int expected = 4;
+
+        assertEquals(exist, "A B");
+        assertEquals(expected,elementNames);
+        boolean erase = dB.remove(toBeRemoved);
+
+        expected = 3;
+        elementNames = dB.getSize();
+        assertEquals(expected,elementNames);
+
+        exist = dB.find(toBeRemoved);
+        assertNull(exist);
+        assertTrue(erase);
+
     }
 }

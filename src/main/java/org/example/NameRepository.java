@@ -123,9 +123,10 @@ public class NameRepository {
             else arrayCut = true;
         }
         if (arrayCut){
-            String[] newArrayCut = new String[namesArray.length-2];
+            String[] newArrayCut = new String[namesArray.length-1];
             for(int i=0;i<(newArray.length-1);i++) {
                 newArrayCut[i] = newArray[i];
+                namesArray = newArrayCut;
             }
             return true;
         }
